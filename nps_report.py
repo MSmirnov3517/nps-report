@@ -40,8 +40,8 @@ def fetch_email(mail):
                 continue
             filename = part.get_filename()
             if "NPS" in filename and filename.endswith(".xlsx"):
-                filepath = os.path.join("temp", filename)
-                os.makedirs("temp", exist_ok=True)
+                filepath = os.path.join("/tmp", filename)
+                os.makedirs("/tmp", exist_ok=True)
                 with open(filepath, "wb") as f:
                     f.write(part.get_payload(decode=True))
                 return filepath, filename
